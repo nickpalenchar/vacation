@@ -1,0 +1,19 @@
+<section id="request">
+
+  <form>
+    <div class="date">
+      <div>Start: <input title="date" type="date"> - <input title="endDate" type="date"></div>
+    </div>
+    <div class="type">
+      <select title="type" name="select">
+        <option value="vacation" selected>Vacation</option>
+        <option value="conflict">Conflict</option>
+        <option value="home">Work from Home</option>
+      </select>
+    </div>
+    <div class="comment">
+      comment: <br/><textarea></textarea>
+    </div>
+  </form>
+  <button ng-click="submit()"></button>
+</section>

@@ -1,0 +1,8 @@
+<section id="home">
+  <div ng-if="!isLoggedIn()" class="inner-container">
+    <button class="btn btn-default" ui-sref="login">Log in</button>
+  </div>
+  <div ng-if="isLoggedIn()" class="inner-container">
+    You are logged in
+  </div>
+</section>
