@@ -2,18 +2,18 @@
 
   <form>
     <div class="date">
-      <div>Start: <input title="date" type="date"> - <input title="endDate" type="date"></div>
+      <div>Start: <input title="date" type="date" ng-model="form.date[0]"> - <input title="endDate" type="date" ng-model="form.date[1]"></div>
     </div>
     <div class="type">
-      <select title="type" name="select">
+      <select title="type" name="select" ng-model="form.type">
         <option value="vacation" selected>Vacation</option>
         <option value="conflict">Conflict</option>
         <option value="home">Work from Home</option>
       </select>
     </div>
     <div class="comment">
-      comment: <br/><textarea></textarea>
+      comment: <br/><textarea title="comment" ng-model="form.comment"></textarea>
     </div>
   </form>
-  <button ng-click="submit()"></button>
+  <button ng-click="submit()" class="btn btn-primary">Submit</button>
 </section>

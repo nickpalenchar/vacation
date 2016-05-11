@@ -8,3 +8,5 @@ var requestSchema = new mongoose.Schema({
   info: String,
   reason: String
 });
+
+mongoose.model('Request', requestSchema);

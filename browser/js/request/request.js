@@ -11,7 +11,11 @@ app.config(function ($stateProvider) {
 
 app.controller('RequestCtrl', function ($scope) {
 
-    // Images of beautiful Fullstack people.
+  $scope.form = {
+    date: [],
+  };
 
-
+    $scope.submit = function() {
+      console.log("form data:", $scope.form);
+    }
 });
