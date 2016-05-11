@@ -1,4 +1,4 @@
-app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) {
+app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state, User) {
 
   return {
     restrict: 'E',
@@ -27,11 +27,13 @@ app.directive('navbar', function ($rootScope, AuthService, AUTH_EVENTS, $state) 
       var setUser = function () {
         AuthService.getLoggedInUser().then(function (user) {
           scope.user = user;
+          User = user;
         });
       };
 
       var removeUser = function () {
         scope.user = null;
+        User = {};
       };
 
       setUser();

@@ -9,11 +9,12 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('RequestCtrl', function ($scope) {
+app.controller('RequestCtrl', function ($scope, User) {
 
   $scope.form = {
     date: [],
   };
+  $scope.user = User;
 
     $scope.submit = function() {
       console.log("form data:", $scope.form);

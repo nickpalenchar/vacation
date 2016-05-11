@@ -31,26 +31,27 @@ var wipeCollections = function () {
   ]);
 };
 
-var seedUsers = function () {
+var seedUsersWithGroups = function () {
 
-  var groups = [
-    {
-      name: "Standard"
-    }
-  ]
+  return Group.create({ name: "Employees", requests: [] })
+    .then(group => {
+      var users = [
+        {
+          email: 'user@user.com',
+          password: 'user',
+          groups: [group],
+          title: 'Employee'
+        },
+        {
+          email: 'admin@admin.com',
+          password: 'admin',
+          managedGroups: [group],
+        }
+      ];
 
-  var users = [
-    {
-      email: 'user@user.com',
-      password: 'user'
-    },
-    {
-      email: 'admin@admin.com',
-      password: 'admin'
-    }
-  ];
+      return User.create(users);
 
-  return User.create(users);
+    });
 
 };
 
@@ -59,7 +60,7 @@ connectToDb
     return wipeCollections();
   })
   .then(function () {
-    return seedUsers();
+    return seedUsersWithGroups();
   })
   .then(function () {
     console.log(chalk.green('Seed successful!'));
